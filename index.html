@@ -43,7 +43,7 @@
      e.preventDefault();
      var id = $('#card').val();
      $.getJSON('https://deckofcardsapi.com/api/deck/' + id + '/draw', function(json){
-        alert("Card drawn from id : " + id + " is " + json['suit']);
+        alert("Card drawn from id : " + id + " is " + json['success']);
      });
   });
   </script>
