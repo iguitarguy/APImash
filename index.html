@@ -64,13 +64,13 @@
   </script>
   
   <hr>
-  <h3>Get your ip address:</h3>
-  <button onclick "ipFunction()">Show me my IP!</button>
+  <h3>Show IP Button</h3>
+  <button onclick="ipFunction()">Show me my IP!</button>
   <script>
     function ipFunction(){
-      $.getJSON('https://api.ipify.org?format=json', function(json){
-        alert(json['ip']);
-      });
+       $.getJSON('https://api.ipify.org/?format=json', function(json){
+       alert(json['ip']); 
+     });
     }
   </script>
   
