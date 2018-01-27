@@ -39,8 +39,8 @@
   </form>
 
   <script>
-  $('#input').click(function(e) {
-     e.preventDefault();
+  $('#input').click(function(f) {
+     f.preventDefault();
      var id = $('#card').val();
      $.getJSON('https://deckofcardsapi.com/api/deck/' + id + '/draw', function(json){
         alert("Card drawn from id : " + id + " is " + json['success']);
