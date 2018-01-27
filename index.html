@@ -1,99 +1,11 @@
 <!DOCTYPE html>
 <html>
-<head> 
-<title>ITEC assignment</title>
-<script>
-function DoCopy() {
-	document.forms["form2"]["name"].value = 
-		document.forms["form1"]["name"].value;
-	document.forms["form2"]["address"].value = 
-		document.forms["form1"]["address"].value;
-}
-var AllImages = [
-"https://upload.wikimedia.org/wikipedia/en/e/ef/GGC_seal1.png",
-"http://scni.media.clients.ellingtoncms.com/imported/Gwinnett/2013/02/25/GGC5_t300.jpg?8aff03de2423e912a2467e97388a07f5331c05b6",
-"http://collegesofdistinction.com/wp-content/uploads/2013/06/GGC_0611_-1885-2-450x300.jpg",
-"http://1.bp.blogspot.com/-OEN0unfk-Pg/UOh65AxYmnI/AAAAAAAABjY/dObOaw38uA4/s1600/DSC00975.JPG",
-"http://www.ggcfoundation.org/view.image?Id=511",
-"https://media.glassdoor.com/l/df/81/3f/a2/2nd-floor-of-ggc-s-student-center.jpg",
-"http://summer2014.engage.ggc.edu/wp-content/uploads/sites/3/2014/06/students-in-library.jpg",
-"http://www.reevesyoung.com/wp-content/uploads/2015/03/ggc-gwinett-library_18.jpg",
-"https://www.universitybusiness.com/sites/default/files/SOP2.JPG",
-"http://1.bp.blogspot.com/-kPFLMusX_tk/UOh6VvipMeI/AAAAAAAABjQ/Bwob7omzwW0/s1600/DSC00984.JPG"
-];
-var whichPic=0;
-function MoveLeft(){
-	if(whichPic >= AllImages.length-3) return;
-	document.getElementById("image1").src = AllImages[whichPic+1];
-	document.getElementById("image2").src = AllImages[whichPic+2];
-	document.getElementById("image3").src = AllImages[whichPic+3];
-	whichPic++;
-}
-function MoveRight(){
-	if(whichPic == 0) return;
-	document.getElementById("image1").src = AllImages[whichPic-1];
-	document.getElementById("image2").src = AllImages[whichPic];
-	document.getElementById("image3").src = AllImages[whichPic+1];
-	whichPic--;
-}
-function ShowResult(){
-	document.getElementById("result").srcdoc = document.getElementById("input").value;
-}
-</script>
+<head>
+<title>Activity04-7</title>
+
 </head>
-<body> 
-<fieldset>
-<legend>Billing info</legend>
-<form name="form1">
-Name: <input type=text name="name"><br>
-Address: <input type=text name="address"><br>
-<input type=submit>
-<input type=reset>
-</form>
-</fieldset>
-<hr>
-<fieldset>
-<legend>Shipping info</legend>
-<form name="form2">
-Name: <input type=text name="name"><br>
-Address: <input type=text name="address"><br>
-<button type=button onclick="DoCopy()">Copy</button>
-<input type=submit>
-<input type=reset>
-</form>
-</fieldset>
-<hr>
-<table>
-<tr>
-	<td><img src=http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons/blue-jelly-icons-arrows/007358-blue-jelly-icon-arrows-arrow-thick-left.png id=slideleft onclick=MoveLeft() width=100px height=100px></td>
-	<td><img src=https://upload.wikimedia.org/wikipedia/en/e/ef/GGC_seal1.png id=image1 width=100px height=100px></td>
-	<td><img src=http://scni.media.clients.ellingtoncms.com/imported/Gwinnett/2013/02/25/GGC5_t300.jpg?8aff03de2423e912a2467e97388a07f5331c05b6 id=image2 width=100px height=100px></td>
-	<td><img src=http://collegesofdistinction.com/wp-content/uploads/2013/06/GGC_0611_-1885-2-450x300.jpg id=image3 width=100px height=100px></td>
-	<td><img src=http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons/blue-jelly-icons-arrows/007359-blue-jelly-icon-arrows-arrow-thick-right.png id=slideright onclick=MoveRight() width=100px height=100px></td>
-</tr>
-</table>
-<hr>
-<form>
-<table>
-<tr>
-	<td>
-		<input type=button value="Try it" onclick=ShowResult()>
-	</td>
-	<td>
-		<input type=reset>
-	</td>
-</tr>
-<tr>
-	<td>
-		<textarea cols=50 rows=25 id=input>
-		</textarea>
-	</td>
-	<td>
-		<iframe id=result src="http://www.ggc.edu" width=400px height=400px></iframe>
-	</td>
-</tr>
-</table>
-</form>
+<body>
+
 <hr>
 <script
 src="http://maps.googleapis.com/maps/api/js">
