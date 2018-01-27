@@ -1,7 +1,7 @@
 <html>
 
 <head>
-  <title>Get Stock Quote</title>
+  <title>API mashup</title>
   <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
   <script
   src="https://code.jquery.com/jquery-3.3.1.js"
@@ -60,6 +60,17 @@
        alert(json['setup']); 
        alert(json['punchline']);
      });
+    }
+  </script>
+  
+  <hr>
+  <h3>Get your ip address:</h3>
+  <button onclick "ipFunction()">Show me my IP!</button>
+  <script>
+    function ipFunction(){
+      $.getJSON('https://api.ipify.org?format=json', function(json){
+        alert(json['ip']);
+      });
     }
   </script>
   
