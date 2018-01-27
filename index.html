@@ -34,16 +34,16 @@
   
   <h3>Enter Deck ID</h3>
   <form class="pure-form">
-    <input type="text" class="pure-input-rounded" id="card">
+    <input type="text" class="pure-input-rounded" id="deck">
     <button type="submit" class="pure-button" id="input">Input</button>
   </form>
 
   <script>
   $('#input').click(function(f) {
      f.preventDefault();
-     var id = $('#card').val();
+     var id = $('#deck').val();
      $.getJSON('https://deckofcardsapi.com/api/deck/' + id + '/draw', function(json){
-        alert("Card drawn from id : " + id + " is " + json['success']);
+        alert(json['success']);
      });
   });
   </script>
