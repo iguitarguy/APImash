@@ -53,9 +53,7 @@
   <button onclick="jokeFunction()">Show me the joke!</button>
   <script>
     function jokeFunction(){
-     e.preventDefault();
-     var id = $('#deck').val();
-     $.getJSON('https://08ad1pao69.execute-api.us-east-1.amazonaws.com/dev/random_joke', function(json){
+       $.getJSON('https://08ad1pao69.execute-api.us-east-1.amazonaws.com/dev/random_joke', function(json){
        alert(json['setup']); 
        alert(json['punchline']);
      });
