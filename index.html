@@ -32,19 +32,20 @@
   });
   </script>
   
-  <h3>Random Joke</h3>
+  <h3>Input Artist and Song, Get Lyrics!</h3>
   <form class="pure-form">
-    <input type="text" class="pure-input-rounded" id="joke">
+    <input type="text" class="pure-input-rounded" id="artist">
+    <input type="text" class="pure-input-rounded" id="song">
     <button type="submit" class="pure-button" id="input">Input</button>
   </form>
 
   <script>
   $('#input').click(function(e) {
      e.preventDefault();
-     var id = $('#deck').val();
-     $.getJSON('https://08ad1pao69.execute-api.us-east-1.amazonaws.com/dev/random_joke', function(json){
-       alert(json['setup']); 
-       alert(json['punchline']);
+     var artistname = $('#artist').val();
+     var songname = $('#song').val();
+     $.getJSON('https://api.lyrics.ovh/v1/' + artistname + '/' + songname, function(json){
+       alert(json['lyrics']); 
      });
   });
   </script>
