@@ -92,6 +92,55 @@
 			document.getElementById("ipaddress").innerHTML ="";
 		}
 	</script>
+	
+	<hr>
+	<h3>Enter YouTube Video ID (/watch?v=IDisRightHere)</h3>
+	<form class="pure-form">
+	<input type="text" class="pure-input-rounded" id="videoid">
+	<button type="submit" class="pure-button" id="load">Load Video!</button>
+	</form>	
+	
+	<!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
+    <div id="player"></div>
+
+    <script>
+		var varid;
+		$('#load').click(function(e) {
+			 e.preventDefault();
+			 varid = $('#videoid').val();
+			 var tag = document.createElement('script');
+
+			 tag.src = "https://www.youtube.com/iframe_api";
+			 var firstScriptTag = document.getElementsByTagName('script')[0];
+			 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+			 var player;
+		});
+      
+		function onYouTubeIframeAPIReady() {
+			player = new YT.Player('player', {
+				height: '390',
+				width: '640',
+				videoId: varid,
+				events: {
+					'onReady': onPlayerReady,
+					'onStateChange': onPlayerStateChange
+				}
+			});
+		}
+		function onPlayerReady(event) {
+			event.target.playVideo();
+		}
+		var done = false;
+		function onPlayerStateChange(event) {
+			if (event.data == YT.PlayerState.PLAYING && !done) {
+				//setTimeout(stopVideo, 6000);
+				done = true;
+			}
+		}
+		function stopVideo() {
+			player.stopVideo();
+		}
+    </script>
 
 
 </body>
