@@ -34,7 +34,7 @@
 		//LYRICS and YOUTUBE SCRIPTS
 		var varid = '-vH2eZAM30s';
 		var y = document.createElement("IFRAME");
-		y.setAttribute("height", "480");
+		y.setAttribute("height", "390");
 		y.setAttribute("width", "640");
 		y.setAttribute("src", "https://www.youtube.com/embed/" + varid + "?enablejsapi=1");
 		document.body.appendChild(y);
@@ -46,7 +46,7 @@
 				document.getElementById("lyrics").innerHTML = ((json['lyrics']));
 			});
 			var keyword = $('#artist').val() + $('#song').val();
-			$.getJSON('https://www.googleapis.com/youtube/v3/search?q=' + keyword + '&maxResults=1&part=snippet&key=AIzaSyCDAgR9EIqYD-jv7oCOzzY5PdC6Fa_MwcI', function(json){
+			$.getJSON('https://www.googleapis.com/youtube/v3/search?q=' + keyword + '&type=video&maxResults=1&part=snippet&key=AIzaSyCDAgR9EIqYD-jv7oCOzzY5PdC6Fa_MwcI', function(json){
 				varid = json.items[0].id.videoId;
 				console.log(varid);
 			 });
