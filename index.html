@@ -96,8 +96,10 @@
 	<hr>
 	<h3>Enter YouTube Video ID (/watch?v=IDisRightHere)</h3>
 	<form class="pure-form">
-	<input type="text" class="pure-input-rounded" id="videoid">
+	Video ID: <input type="text" class="pure-input-rounded" id="videoid">
 	<button type="submit" class="pure-button" id="load">Load Video!</button>
+	<!--Search Keyword: <input type="text" class="pure-input-rounded" id="searchid">
+	<button type="submit" class="pure-button" id="searchvideo">Search Video!</button> -->
 	</form>	
 	
 	<!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
@@ -105,9 +107,27 @@
 
     <script>
 		var varid;
+		$('#searchvideo').click(function(e) {
+			 e.preventDefault();
+			 var keyword = $('#searchid').val();
+			 $.getJSON('https://www.googleapis.com/youtube/v3/search?q=' + keyword + '&maxResults=1&part=snippet&key=AIzaSyCDAgR9EIqYD-jv7oCOzzY5PdC6Fa_MwcI', function(json){
+				varid = json['videoId'];
+			 });
+			 var tag = document.createElement('script');
+			 var firstScriptTag = document.getElementsByTagName('script')[0];
+			 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+			 var player;
+		});
+		
 		$('#load').click(function(e) {
 			 e.preventDefault();
-			 varid = $('#videoid').val();
+			 var keyword = $('#videoid').val();
+			 $.getJSON('https://www.googleapis.com/youtube/v3/search?q=' + keyword + '&maxResults=1&part=snippet&key=AIzaSyCDAgR9EIqYD-jv7oCOzzY5PdC6Fa_MwcI', function(json){
+				varid = json['kind'];
+			 });
+			 //varid = json1.items[0].id.videoId;
+			 alert(varid);
+			 //varid = $('#videoid').val();
 			 var tag = document.createElement('script');
 
 			 tag.src = "https://www.youtube.com/iframe_api";
@@ -140,6 +160,8 @@
 		function stopVideo() {
 			player.stopVideo();
 		}
+		
+		
     </script>
 
 
